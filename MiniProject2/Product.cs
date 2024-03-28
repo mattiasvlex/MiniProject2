@@ -8,14 +8,41 @@ namespace MiniProject2
 {
     internal class Product
     {
-        public string Category { get; set; }
-        public string Name { get; set; }
-        public int Price { get; set; }
+        private string _category;
+        private string _name;
+        private int _price;
+
+        public string Category
+        {
+            get => _category;
+            set => _category = value;
+        }
+
+        public string Name
+        {
+            get => _name;
+            set => _name = value;
+        }
+
+        public int Price
+        {
+            get => _price;
+            set
+            {
+                if (value >= 0)
+                {
+                    _price = value;
+                } else
+                {
+                    _price = 0;
+                }
+            }
+        }
 
         public Product(string category, string name, int price) {
-            Category = category;
-            Name = name;
-            Price = price;
+            _category = (category == null) ? _category = "" : _category = category;
+            _name = (name == null) ? _name = "" : _name = name;
+            _price = (price >= 0) ? _price = price : _price = 0;
         }
     }
 }
