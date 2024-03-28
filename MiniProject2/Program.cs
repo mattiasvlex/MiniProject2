@@ -1,2 +1,5 @@
-﻿//Test
-Console.WriteLine("Hello, World!");
+﻿using MiniProject2;
+
+
+List<Product> products = new List<Product>();
+
