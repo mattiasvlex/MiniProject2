@@ -8,22 +8,13 @@ namespace MiniProject2
 {
     internal class Product
     {
-        private string _category;
-        private string _name;
+        //No need to set fields for category and name
         private int _price;
 
-        public string Category
-        {
-            get => _category;
-            set => _category = value;
-        }
+        public string Category { get; set; } = string.Empty;
 
-        public string Name
-        {
-            get => _name;
-            set => _name = value;
-        }
-
+        public string Name { get; set; } = string.Empty;
+        
         public int Price
         {
             get => _price;
@@ -39,10 +30,10 @@ namespace MiniProject2
             }
         }
 
-        public Product(string category, string name, int price) {
-            _category = (category == null) ? _category = "" : _category = category;
-            _name = (name == null) ? _name = "" : _name = name;
-            _price = (price >= 0) ? _price = price : _price = 0;
+        public override string ToString()
+        {
+            return this.Category + "\t" + this.Name + "\t" + this.Price;
         }
+
     }
 }
