@@ -29,10 +29,16 @@ namespace MiniProject2
                 }
             }
         }
+        public Product(string category, string name, int price)
+        {
+            Category = category;
+            Name = name;
+            Price = price;
+        }
 
         public override string ToString()
         {
-            return this.Category + "\t" + this.Name + "\t" + this.Price;
+            return this.Category + "\t\t" + this.Name + "\t\t\t" + this.Price;
         }
 
     }
