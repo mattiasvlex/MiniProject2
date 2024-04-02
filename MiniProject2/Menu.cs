@@ -59,19 +59,29 @@ namespace MiniProject2
         {
             PrintCategories();
 
-            foreach (var p in products)
+            if (found.Count != 0)  //If something matched the search
             {
-                foreach (var f in found)
+                foreach (var p in products)
                 {
-                    if (p == f)
+                    foreach (var f in found)
                     {
-                        Console.ForegroundColor = ConsoleColor.Magenta;
-                        Console.WriteLine(p);
-                        Console.ResetColor();
-                    } else
-                    {
-                        Console.WriteLine(p);
+                        if (p == f)  //Print the search result
+                        {
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(p);
+                            Console.ResetColor();
+                        }
+                        else //All other items in list
+                        {
+                            Console.WriteLine(p);
+                        }
                     }
+                }
+            } else  //If nothing matched the search
+            {
+                foreach (var p in products)
+                {
+                    Console.WriteLine(p);
                 }
             }
             Console.WriteLine("--------------------------------------------------------");
