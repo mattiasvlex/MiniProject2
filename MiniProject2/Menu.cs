@@ -52,29 +52,35 @@ namespace MiniProject2
             {
                 Console.WriteLine(product);
             }
-            Console.WriteLine("\n\t\t\t\tTotal amount:\t" + total);
+            Console.WriteLine("\n" + "Total amount:".PadLeft(38) + "            " + total);
             Console.WriteLine("--------------------------------------------------------");
         }
-        public static void PrintSearch(List<Product> list, List<Product> found)
+        public static void PrintSearch(List<Product> products, List<Product> found)
         {
             PrintCategories();
-            foreach (Product product in list)
-            {
-                
-                Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine(product);
-                Console.ResetColor();
-             
-                
-            }
 
+            foreach (var p in products)
+            {
+                foreach (var f in found)
+                {
+                    if (p == f)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine(p);
+                        Console.ResetColor();
+                    } else
+                    {
+                        Console.WriteLine(p);
+                    }
+                }
+            }
             Console.WriteLine("--------------------------------------------------------");
         }
         private static void PrintCategories()
         {
             Console.WriteLine("--------------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Category\t\tProduct\t\t\tPrice");
+            Console.WriteLine("Category".PadRight(25) + "Product".PadRight(25) + "Price");
             Console.ResetColor();
         }
     }
