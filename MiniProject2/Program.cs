@@ -18,28 +18,29 @@ while (true)
 
     } else if (cmd == "p") //If add to list
     {  
-        string category = Menu.GetCategory();
-        while (!Regex.IsMatch(category, "^[A-Za-z]+$"))  //Check if category is reasonable
+        string category = Menu.GetCategory().Trim();
+        while (!Regex.IsMatch(category, "^[A-Za-z\x20]+$"))  //Check if category is reasonable
         {
             Menu.PrintError("Product category can only be letters");
-            category = Menu.GetCategory();
+            category = Menu.GetCategory().Trim();
         }
 
-        string name = Menu.GetName();
-        while (!Regex.IsMatch(name, "^[A-Za-z]+$"))  //Check if name is reasonable
+        string name = Menu.GetName().Trim();
+        while (!Regex.IsMatch(name, "^[A-Za-z\x20]+$"))  //Check if name is reasonable
         {
             Menu.PrintError("Product name can only be letters");
-            category = Menu.GetCategory();
+            name = Menu.GetName().Trim();
         }
 
-        string price = Menu.GetPrice();
+        string price = Menu.GetPrice().Trim();
         while (!int.TryParse(price, out int p)) //Check if price can be seen as an int
         {
             Menu.PrintError("Price must be a whole number");
-            price = Menu.GetPrice();
+            price = Menu.GetPrice().Trim();
         }
         
         products.Add(new Product(category, name, Int32.Parse(price)));  //Now we know price is an int
+        Menu.PrintAdded();
             
     } else if (cmd == "s")  //If search for a product
     {
