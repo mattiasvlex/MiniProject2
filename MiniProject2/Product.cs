@@ -38,7 +38,7 @@ namespace MiniProject2
 
         public override string ToString()
         {
-            return this.Category + "\t\t" + this.Name + "\t\t\t" + this.Price;
+            return this.Category.PadRight(25) + this.Name.PadRight(25) + this.Price;
         }
 
     }
